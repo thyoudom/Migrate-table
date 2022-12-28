@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/feather-icons"></script>
 <div class="table">
     @if ($data->count() > 0)
         <div class="table-wrapper">
@@ -67,6 +68,7 @@
                                             <li>
                                                 <a class="dropdown-item" s-click-link="{!! route('admin-user-create', $item->id) !!}">
                                                     <i data-feather="edit"></i>
+
                                                     <span>@lang('table.option.edit')</span>
                                                 </a>
                                             </li>

@@ -10,7 +10,10 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SlideController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +43,59 @@ Route::middleware(['AdminGuard'])
         });
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        //Customer
+        // Route::get('type/create',[Admin\TypeController::class,'create'])->name('type.create');
+        // Route::post('/type',[Admin\TypeController::class,'store'])->name('type.store');
+        // Route::get('/type/{type}/edit',[Admin\TypeController::class,'edit'])->name('type.edit');
+        // Route::put('/type/{type}',[Admin\TypeController::class,'update'])->name('type.update');
+        // Route::match(['get', 'post'], 'status/{id}/{status}', [Admin\TypeController::class, 'onUpdateStatus'])->name('type.status');
+        // Route::get('/type/{type}',[Admin\TypeController::class,'destroy'])->name('type.destroy');
+        // Route::get('/type/{type}',[Admin\TypeController::class,'destroy'])->name('type.destroy');
+         Route::get('/customer/{id?}', [Admin\CustomerController::class, 'index'])->name('customer.index');
+                Route::get('/customer/create',[Admin\CustomerController::class,'create'])->name('customer.create');
+                Route::post('/customer',[Admin\CustomerController::class,'store'])->name('customer.store');
+                Route::get('/customer/{customer}/edit',[Admin\CustomerController::class,'edit'])->name('customer.edit');
+                Route::put('/customer/{customer}',[Admin\CustomerController::class,'update'])->name('customer.update');
+                // Route::match(['get', 'post'], 'status/{id}/{status}', [Admin\CustomerController::class, 'onUpdateStatus'])->name('customer.status');
+                // Route::get('/customer/{customer}',[Admin\CustomerController::class,'destroy'])->name('type.destroy');
+                // Route::get('/customer/{customer}',[Admin\CustomerController::class,'destroy'])->name('customer.destroy');
+                
+                // // Route::get('list/{id?}', [UserController::class, 'index'])->name('list');
+                // Route::get('customer/create', [Admin\CustomerController::class, 'onCreate'])->name('create');
+                // // Route::post('customer-save', [Admin\UserController::class, 'onSave'])->name('save');
+                // Route::post('/save-data', [UserController::class, 'saveData'])->name('save');
+                // // Route::match(['get', 'post'], 'status/{id}/{status}', [UserController::class, 'onUpdateStatus'])->name('status');
+        
+ //Type
+        Route::resource('type',Admin\TypeController::class);
+        // Route::get('/type',[Admin\TypeController::class,'index'])->name('type.index');
+        // Route::get('type/create',[Admin\TypeController::class,'create'])->name('type.create');
+        // Route::post('/type',[Admin\TypeController::class,'store'])->name('type.store');
+        // Route::get('/type/{type}/edit',[Admin\TypeController::class,'edit'])->name('type.edit');
+        // Route::put('/type/{type}',[Admin\TypeController::class,'update'])->name('type.update');
+        // Route::match(['get', 'post'], 'status/{id}/{status}', [Admin\TypeController::class, 'onUpdateStatus'])->name('type.status');
+        // Route::get('/type/{type}',[Admin\TypeController::class,'destroy'])->name('type.destroy');
+        // Route::get('/type/{type}',[Admin\TypeController::class,'destroy'])->name('type.destroy');
+//Setting
 
-        // User
+        Route::resource('setting',Admin\SettingController::class);
+        // Route::get('/setting',[Admin\SettingController::class,'index'])->name('setting.index');
+        // Route::get('setting/create',[Admin\SettingController::class,'create'])->name('setting.create');
+        // Route::post('/setting',[Admin\SettingController::class,'store'])->name('setting.store');
+        // Route::get('/setting/{setting}/edit',[Admin\SettingController::class,'edit'])->name('setting.edit');
+        // Route::put('/setting/{setting}',[Admin\SettingController::class,'update'])->name('setting.update');
+        // // Route::match(['get', 'post'], 'status/{id}/{status}', [Admin\SettingController::class, 'onUpdateStatus'])->name('type.status');
+        // Route::get('/setting/{setting}',[Admin\SettingController::class,'destroy'])->name('type.destroy');
+        // Route::get('/setting/{setting}',[Admin\SettingController::class,'destroy'])->name('setting.destroy');
+//Services
+        Route::get('/service/{id?}', [Admin\ServiceController::class, 'index'])->name('service.index');
+        Route::get('/create', [Admin\ServiceController::class, 'create'])->name('create');
+        Route::post('/service',[Admin\ServiceController::class,'store'])->name('service.store');
+        Route::get('/service/{id}',[Admin\ServiceController::class,'destroy'])->name('service.destroy');
+        Route::match(['get', 'post'], 'status/{id}/{status}', [Admin\ServiceController::class, 'onUpdateStatus'])->name('service.status');
+        Route::get('/service/{data}/edit',[Admin\ServiceController::class,'edit'])->name('service.edit');
+        Route::put('/service/{id?}',[Admin\ServiceController::class,'update'])->name('service.update');
+// User
         Route::prefix('user')
             ->name('user-')
             ->group(function () {
@@ -115,6 +169,9 @@ Route::middleware(['AdminGuard'])
         });
     });
 
+
+
+
 Route::get('clear-cache', function () {
     Artisan::call('optimize:clear');
     return "Cache is cleared";
@@ -129,3 +186,4 @@ Route::group(['prefix' => 'geo-api'], function () {
 Route::group(['prefix' => 'setting-api'], function () {
     Route::get('check-phone', [Admin\Api\SettingController::class, 'checkUserPhoneExit'])->name('setting.api.check.phone');
 });
+

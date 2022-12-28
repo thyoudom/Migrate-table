@@ -75,4 +75,57 @@ return [
             ],
         ],
     ],
+    
+    //List
+    [
+        'active' => 'admin/customer/*,admin/type*,admin/setting*,admin/service/1*,admin/service/2*',
+        'permission' => ['customer-view', 'type-view', 'setting-view'],
+        'name' => [
+            'en' => 'Set Up',
+            'km' => 'កំណត់',
+        ],
+        'icon' => 'settings',
+        'children' => [
+            [
+                'path' => 'admin/customer/1',
+                'active' => 'admin/customer/*',
+                'permission' => 'contact-view',
+                'name' => [
+                    'en' => 'Customer',
+                    'km' => 'អតិថិជន',
+                ],
+            ],
+            [
+                'path' => 'admin/type',
+                'active' => 'admin/type*',
+                'permission' => 'type-view',
+                'name' => [
+                    'en' => 'Type',
+                    'km' => 'Type',
+                ],
+                'icon' => 'framer',
+            ],
+            [
+                'path' => 'admin/setting',
+                'active' => 'admin/setting*',
+                'permission' => 'setting-view',
+                'name' => [
+                    'en' => 'Setting',
+                    'km' => 'Setting',
+                ],
+                'icon' => 'settings',
+            ],
+            [
+                'path' => 'admin/service/1',
+                'active' => 'admin/service/*',
+                'permission' => 'service-view',
+                'name' => [
+                    'en' => 'Service',
+                    'km' => 'Setting',
+                ],
+                'icon' => 'service',
+            ],
+        ],
+    ],
+    
 ];

@@ -10,11 +10,11 @@ use App\Models\User;
 class DashboardController extends Controller
 {
 
-    public function __construct(QueryService $queryService)
-    {
-        $this->queryService = $queryService;
-        $this->middleware('permission:dashboard-view', ['only' => ['index']]);
-    }
+    // public function __construct(QueryService $queryService)
+    // {
+    //     $this->queryService = $queryService;
+    //     $this->middleware('permission:dashboard-view', ['only' => ['index']]);
+    // }
 
     public function index()
     {

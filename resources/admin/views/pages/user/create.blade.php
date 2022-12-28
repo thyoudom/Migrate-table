@@ -1,7 +1,7 @@
 @extends('admin::shared.layout')
 @section('layout')
     <div class="form-admin">
-        <div class="form-bg"></div>
+        <div aclass="form-bg"></div>
         <form id="form" class="form-wrapper" action="{!! route('admin-user-save', request('id')) !!}" method="POST" enctype="multipart/form-data">
             <div class="form-header">
                 <h3>

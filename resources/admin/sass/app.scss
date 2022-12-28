@@ -3,7 +3,15 @@ body {
     margin : 0;
     padding: 0;
 }
+//font
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+//Other
 @import "../package/mdbootstrap/css/mdb.min.css";
 @import "../package/animate.css";
 @import "../package/quill.snow.css";
