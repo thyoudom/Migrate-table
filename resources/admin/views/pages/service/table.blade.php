@@ -37,13 +37,26 @@
                                     </i>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         @can('user-update')
-                                            <!-- <li>
+                                            <li>
                                                 <a class="dropdown-item" s-click-link="{!! route('admin-service.edit', $item->id) !!}">
                                                     <i data-feather="edit"></i>
 
                                                     <span>@lang('table.option.edit')</span>
                                                 </a>
-                                            </li> -->
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item enable-btn" onclick="$onConfirmMessage(
+                                                                    '{!! route('admin-service.destroy', $item->id) !!}',
+                                                                    '@lang('dialog.msg.delete', ['name' => $item->name])',
+                                                                    {
+                                                                        confirm: '@lang('dialog.button.delete')',
+                                                                        cancel: '@lang('dialog.button.cancel')'
+                                                                    },
+                                                                );">
+                                                        <i data-feather="delete"></i>
+                                                        <span>@lang('table.option.delete')</span>
+                                                </a>
+                                            </li>
                                            
                                             @if ($item->status == 2)
                                                     <li>
@@ -85,11 +98,18 @@
                 
                 
             </div>
-            <div class="table-footer">
-                
+           <div class="table-footer">
+                @include('admin::components.pagination', ['paginate' => $data])
             </div>
         </div>
     @else
-    
-    @endif
+    <!-- @component('admin::components.empty', [
+            'name' => __('Empty'),
+            'msg' => __('user.empty.description'),
+            'permission' => 'service-create',
+            'url' => route('admin-service.create'),
+            'button' => __('create'),
+            ])
+        @endcomponent
+    @endif -->
 </div>

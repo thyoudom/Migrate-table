@@ -17,7 +17,7 @@ class Customer extends Model
         'addess_kh',
         'email',
         'gender',
-        'status'
+        'status',
     ];
     
 }

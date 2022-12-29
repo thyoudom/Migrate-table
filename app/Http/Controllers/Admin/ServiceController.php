@@ -38,7 +38,7 @@ class ServiceController extends Controller
 
         } else {
             // return with errrors
-            return redirect()->route('admin-create')->withErrors($validator)->withInput();
+            return redirect()->route('admin-service.create')->withErrors($validator)->withInput();
         }
     }
     public function onUpdateStatus(Request $req)
@@ -61,7 +61,7 @@ class ServiceController extends Controller
         return view('admin::pages.service.edit',['data' => $data]);
     }
 
-    public function update(Service $service, Request $request) {
+    public function update(Service $data, Request $request) {
 
         $validator = Validator::make($request->all(),[
             'service_name' => 'required',
@@ -70,7 +70,7 @@ class ServiceController extends Controller
 
         if ( $validator->passes() ) {
             // Save data here
-            $service->fill($request->post())->save();
+            $data->fill($request->post())->save();
             return redirect()->route('admin-service.index',1)->with('success','Update successfully.');
         } else {
             // return with errrors

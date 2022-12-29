@@ -78,7 +78,7 @@ return [
     
     //List
     [
-        'active' => 'admin/customer/*,admin/type*,admin/setting*,admin/service/1*,admin/service/2*',
+        'active' => 'admin/customer/*,admin/type*,admin/setting*,admin/service/*,admin/project/1*,admin/project/2*',
         'permission' => ['customer-view', 'type-view', 'setting-view'],
         'name' => [
             'en' => 'Set Up',
@@ -124,6 +124,16 @@ return [
                     'km' => 'Setting',
                 ],
                 'icon' => 'service',
+            ],
+            [
+                'path' => 'admin/project/1',
+                'active' => 'admin/project/*',
+                'permission' => 'project-view',
+                'name' => [
+                    'en' => 'Project',
+                    'km' => 'Project',
+                ],
+                'icon' => '',
             ],
         ],
     ],

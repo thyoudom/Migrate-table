@@ -28,7 +28,11 @@
                             <span><td>{{$item['name']}}</td></span>
                         </div>
                         <div class="row table-row-30">
-                            <span><td>{{$item['status']}}</td></span>
+                            @if ($item->status == 1)
+                                <span class="bold">Active</span>
+                                @else
+                                <span class="bold">Desable</span>                
+                            @endif
                         </div>
                         <div class="row table-row-25">
                         @canany(['type-update', 'type-delete'])

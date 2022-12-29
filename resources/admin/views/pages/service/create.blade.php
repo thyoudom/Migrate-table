@@ -6,20 +6,20 @@
             <div class="form-header">
                 <h3>
                     <i data-feather="arrow-left" s-click-link="{!! route('admin-service.index', 1) !!}"></i>
-                    {!! request('id') ? __('service.form.title.update', ['name' => __('service.name')]) : __('service.form.title.create', ['service' => __('service.name')]) !!}
+                    {!! request('id') ? __('service.form.title.update', ['name' => __('service.name')]) : __('Go Back', ['service' => __('service.name')]) !!}
                 </h3>
             </div>
             {{ csrf_field() }}
             <div class="form-body">
                 <div class="row-2">
                     <div class="form-row">
-                        <label>@lang('service.form.service_name.label')<span>*</span> </label>
+                        <label>@lang('Service Name')<span>*</span> </label>
                         <input type="text" name="service_name" value="{!! request('id') ? $data->service_name : old('service_name') !!}"
-                            placeholder="@lang('service.form.service_name.placeholder')">
+                            placeholder="@lang('service type')">
                     </div>
                     <div class="form-row">
-                        <label>@lang('service.form.service_description.label')</label>
-                        <input name="service_description" placeholder="@lang('service.form.service_description.placeholder')" type="text"
+                        <label>@lang('Service Description')</label>
+                        <input name="service_description" placeholder="@lang('service description')" type="text"
                             value="{!! request('id') ? $data->service_description : old('service_description') !!}">
                         @error('phone')
                             <span class="error">@lang("message.".$message)</span>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="row-2">
                     <div class="form-row">
-                        <label>@lang('user.form.status.label')<span>*</span></label>
+                        <label>@lang('Status')<span>*</span></label>
                         <select name="status">
                             <option value="1" {!! (request('id') && $data->status == 1) || old('status') == 1 ? 'selected' : '' !!}>@lang('user.form.status.active')</option>
                             <option value="2" {!! (request('id') && $data->status == 2) || old('status') == 2 ? 'selected' : '' !!}>@lang('user.form.status.disable')</option>

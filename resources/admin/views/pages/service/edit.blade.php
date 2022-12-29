@@ -16,14 +16,14 @@
             <div class="form-body">
                 <div class="row-2">
                     <div class="mb-3 form-row">
-                        <label for="name" class="form-label">Name</label>
+                        <label>@lang('Service Name')</label>
                         <input type="text" name="service_name" id="service_name" placeholder="Enter service_name" class="form-control @error('service_name') is-invalid @enderror" value="{{ old('service_name',$data->service_name) }}">
                         @error('service_name')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
                     </div>
                     <div class="mb-3 form-row">
-                        <label for="name" class="form-label">Name</label>
+                        <label>@lang('Service Description')</label>
                         <input type="text" name="service_description" id="service_description" placeholder="Enter service_description" class="form-control @error('service_description') is-invalid @enderror" value="{{ old('service_description',$data->service_description) }}">
                         @error('service_name')
                             <p class="invalid-feedback">{{ $message }}</p>    
@@ -43,7 +43,7 @@
                     <div class="form-button">
                         <button type="submit" color="primary">
                             <i data-feather="save"></i>
-                            <span>@lang('submit')</span>
+                            <span>@lang('user.form.button.update')</span>
                         </button>
                         <button color="danger" type="button" s-click-link="{!! route('admin-service.index', 1) !!}">
                             <i data-feather="x"></i>

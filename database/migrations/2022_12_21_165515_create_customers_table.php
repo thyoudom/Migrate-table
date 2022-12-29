@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('company-name_en')->nullable()->comment('english');
+            $table->string('company_name_en')->nullable()->comment('english');
             $table->string('company_name_kh')->nullable()->comment('khmer');
             $table->string('vat_tin',100);
             $table->string('phone');

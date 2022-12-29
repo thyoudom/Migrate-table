@@ -5,9 +5,9 @@
         <form action="{{ route('admin-setting.store') }}" class="form-wrapper" method="post" enctype="multipart/form-data">
             <div class="form-header">
                 <h3>
-                    <i data-feather="arrow-left" s-click-link="{!! route('admin-setting.index') !!}"></i>
+                    <i data-feather="arrow-left" s-click-link="{!! route('admin-setting.index',1) !!}"></i>
                     Go Back
-                    <!-- {!! request('id') ? __('Customer.form.title.update', ['name' => __('Customer.name')]) : __('Customer.form.title.create', ['name' => __('Customer.name')]) !!} -->
+                    
                 </h3>
             </div>
             {{ csrf_field() }}
@@ -58,7 +58,7 @@
                             <i data-feather="save"></i>
                             <span>@lang('type.form.button.submit')</span>
                         </button>
-                        <button color="danger" type="button" s-click-link="{!! route('admin-type.index') !!}">
+                        <button color="danger" type="button" s-click-link="{!! route('admin-setting.index') !!}">
                             <i data-feather="x"></i>
                             <span>@lang('customer.form.button.cancel')</span>
                         </button>

@@ -26,11 +26,10 @@
                 
             </div>
             <div class="table-body">
-                @foreach ($setting as $item)
+                @foreach ($setting as $index => $item)
                     <div class="column">
                         <div class="row table-row-5">
-                        
-                        <span><td>{{$item['id']}}</td></span>
+                        <span>{!! $setting->currentPage() * $setting->perPage() - $setting->perPage() + ($index + 1) !!}</span>
                         </div>
                         <div class="row table-row-15 text left bold">
                             <span><td>{{$item['company_name_kh']}}</td></span>
@@ -77,7 +76,7 @@
                 @endforeach
             </div>
             <div class="table-footer">
-                
+                @include('admin::components.pagination', ['paginate' => $setting])
             </div>
         </div>
     @else

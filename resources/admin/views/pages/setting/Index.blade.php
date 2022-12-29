@@ -2,7 +2,7 @@
 @section('layout')
     <div class="content-wrapper">
     <div class="header">
-        @include('admin::shared.header', ['header_name' => __('setting.title')])
+        @include('admin::shared.header', ['header_name' => __('Setting Page')])
             <div class="header-tab">
                 <div class="header-tab-wrapper">
                     <div class="menu-row">

@@ -39,15 +39,15 @@
                             <span>@lang('user.button.search')</span>
                         </button>
                     </form>
-                    @can('user-create')
-                        <button class="btn-create" s-click-link="">
+                    @can('customer-create')
+                        <button class="btn-create" s-click-link="{!! route('admin-customer.create') !!}">
                             <i data-feather="plus-circle"></i>
                             <span>@lang('customer.button.create')</span>
                         </button>
                     @endcan
                     <button s-click-link="{!! url()->current() !!}">
                         <i data-feather="refresh-ccw"></i>
-                        <span>@lang('user.button.reload')</span>
+                        <span>@lang('customer.button.reload')</span>
                     </button>
                 </div>
             </div>
